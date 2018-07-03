@@ -2,7 +2,7 @@ import nltk
 import csv
 from nltk.tokenize import word_tokenize
 
-ifile=open("input/try_NaiveBayes_training_dataset_v2.csv", encoding="ISO-8859-1")
+ifile=open("NaiveBayes_training_dataset_v2.csv", encoding="ISO-8859-1")
 reader = csv.DictReader(ifile)
 train = []
 for row in reader:
@@ -20,14 +20,14 @@ t = [({word: (word in word_tokenize(x[0])) for word in dictionary}, x[1]) for x 
 # Step 4 â the classifier is trained with sample data
 classifier = nltk.NaiveBayesClassifier.train(t)
 
-ifile=open("input/try_NaiveBayes_test_dataset.csv",encoding = "utf-8")
+ifile=open("NaiveBayes_test_dataset.csv",encoding = "utf-8")
 reader = csv.DictReader(ifile)
-ofile = open("output/try_NaiveBayes_output.csv",'w+')
+ofile = open("NaiveBayes_output.csv",'w+')
 writer = csv.DictWriter(ofile, fieldnames=["Statement","Sentiment"])
 writer.writeheader()
 ofile.close()
 for row in reader:
-    ofile = open("output/try_NaiveBayes_output.csv",'a')
+    ofile = open("NaiveBayes_output.csv",'a')
     writer = csv.DictWriter(ofile, fieldnames=["Statement","Sentiment"])
     text= row['Statement']
     test_data_features = {word.lower(): (word in word_tokenize(text.lower())) for word in dictionary}
