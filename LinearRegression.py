@@ -1,10 +1,3 @@
-print(__doc__)
-
-
-# Code source: Jaques Grobler
-# License: BSD 3 clause
-
-
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model
